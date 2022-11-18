@@ -45,7 +45,7 @@ GEM
     unicode-display_width (2.3.0)
 
 PLATFORMS
-  arm64-darwin-22
+  ruby
 
 DEPENDENCIES
   ohdear_health_check!
