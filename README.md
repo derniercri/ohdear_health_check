@@ -8,7 +8,9 @@ TODO: Delete this and the text above, and describe your gem
 
 Install the gem and add to the application's Gemfile by executing:
 
-    $ gem 'ohdear_health_check', git: 'https://github.com/derniercri/ohdear_health_check'
+```ruby
+gem 'ohdear_health_check', git: 'https://github.com/derniercri/ohdear_health_check'
+```
 
 
 ## Usage
