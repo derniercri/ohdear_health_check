@@ -15,10 +15,14 @@ module OhdearHealthCheck
 
     private
 
+    def current_time
+      Process.clock_gettime(Process::CLOCK_MONOTONIC)
+    end
+
     def execute(check)
-      starting = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+      starting = current_time
       check.execute!
-      ending = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+      ending = current_time
       elapsed = ending - starting
       check.result = Result.new(:ok, check.name, check.success_message, nil, elapsed)
     rescue StandardError => e

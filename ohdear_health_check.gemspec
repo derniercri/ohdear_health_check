@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = ['Dernier Cri']
   spec.email = ['dev@derniercri.io']
 
-  spec.summary = 'OhDear Helth Check'
+  spec.summary = 'OhDear Health Check'
   spec.description = 'Formats health check payload for OhDear service'
   spec.homepage = 'https://github.com/derniercri/ohdear_health_check'
   spec.license = 'MIT'
@@ -35,4 +35,18 @@ Gem::Specification.new do |spec|
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
   spec.metadata['rubygems_mfa_required'] = 'true'
+
+  spec.add_dependency 'actionpack'
+  spec.add_dependency 'railties'
+
+  spec.add_development_dependency 'bundler'
+  spec.add_development_dependency 'rake'
+  spec.add_development_dependency 'redis'
+  spec.add_development_dependency 'rspec-rails'
+  spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'rubocop-performance'
+  spec.add_development_dependency 'sidekiq'
+  spec.add_development_dependency 'simplecov'
+  spec.add_development_dependency 'simplecov-console'
+  spec.add_development_dependency 'timecop'
 end

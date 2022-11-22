@@ -3,6 +3,7 @@
 module OhdearHealthCheck
   class Configuration
     SETTINGS = %i[checks].freeze
+    DETECTABLE_CHECKS = %i[Redis Sidekiq].freeze
 
     attr_accessor(*SETTINGS)
 
