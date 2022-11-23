@@ -9,10 +9,6 @@ module OhdearHealthCheck
                        .each(&:join)
     end
 
-    def errored?
-      @errors.any?
-    end
-
     private
 
     def current_time
