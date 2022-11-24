@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require 'bundler/setup'
+require 'support/simplecov'
+
 require 'ohdear_health_check'
 
 RSpec.configure do |config|
