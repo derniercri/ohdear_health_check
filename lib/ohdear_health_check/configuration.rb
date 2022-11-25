@@ -41,8 +41,8 @@ module OhdearHealthCheck
     end
 
     def add_default_checks
-      add_check :database,   -> { ActiveRecord::Base.connection.execute('select 1') }, 'Database is up'
-      add_check :migrations, -> { ActiveRecord::Migration.check_pending! }, 'Migrations are up to date'
+      add_check :database,   -> { ::ActiveRecord::Base.connection.execute('select 1') }, 'Database is up'
+      add_check :migrations, -> { ::ActiveRecord::Migration.check_pending! }, 'Migrations are up to date'
       add_redis
       add_sidekiq
     end

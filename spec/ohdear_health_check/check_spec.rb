@@ -17,4 +17,9 @@ RSpec.describe OhdearHealthCheck::Check, type: :model do
   it { expect(subject.error_message).to eq(error_message) }
   it { expect(subject.result).to eq(nil) }
   it { expect(subject.execute!).to eq('passed') }
+
+  context 'with no block is given' do
+    subject { described_class.new(name, nil, success_message, error_message) }
+    it { expect { subject }.to raise_error(OhdearHealthCheck::Check::Error).with_message('You must pass a block') }
+  end
 end

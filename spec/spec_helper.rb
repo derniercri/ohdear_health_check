@@ -5,6 +5,8 @@ require 'support/simplecov'
 
 require 'ohdear_health_check'
 
+require 'timecop'
+
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = '.rspec_status'
@@ -16,5 +18,5 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
-  config.before { OhdearHealthCheck.configuration.clear! }
+  config.after { OhdearHealthCheck.configuration.send(:initialize) }
 end

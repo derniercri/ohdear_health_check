@@ -8,6 +8,7 @@ RSpec.describe OhdearHealthCheck::Checker, type: :model do
   let(:errors) { results.find_all { |check| check.status == :failed } }
 
   before do
+    OhdearHealthCheck.configuration.send(:clear!)
     OhdearHealthCheck.configure do |config|
       config.add_check :zero_division, -> { 100 / 0 }
       config.add_check :standard_error, -> { raise StandardError }

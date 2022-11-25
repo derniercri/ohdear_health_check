@@ -10,7 +10,7 @@ module OhdearHealthCheck
 
     def build_response
       {
-        finishedAt:   Time.current.to_i,
+        finishedAt:   Time.now.to_i,
         checkResults: OhdearHealthCheck.configuration.checks.map { |c| check_response(c) },
       }
     end

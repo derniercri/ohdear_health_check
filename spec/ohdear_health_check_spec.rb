@@ -13,6 +13,7 @@ RSpec.describe OhdearHealthCheck, type: :module do
       end
     end
 
+    it { expect(described_class.configuration.checks.size).to eq(3) }
     it { expect(described_class.configuration.checks.first).to be_a(OhdearHealthCheck::Check) }
   end
 
