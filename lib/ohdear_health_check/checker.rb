@@ -16,7 +16,6 @@ module OhdearHealthCheck
     end
 
     def execute(check)
-      p check.name
       starting = current_time
       check.execute!
       ending = current_time

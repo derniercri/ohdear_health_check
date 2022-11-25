@@ -8,7 +8,7 @@ module OhdearHealthCheck
       @status = status
       @name = name
       @message = message&.squish
-      @exception = exception
+      @exception = exception.to_s
       @response_time = response_time&.round(3)
     end
   end
