@@ -7,6 +7,8 @@ module OhdearHealthCheck
     class Error < StandardError; end
 
     def initialize(name, block, success_message = nil, error_message = nil)
+      raise Error, 'You must pass a block' if block.nil? || !block.is_a?(Proc)
+
       @name = name
       @block = block
       @error_message = error_message
