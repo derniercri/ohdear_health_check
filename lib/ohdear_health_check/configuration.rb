@@ -20,6 +20,10 @@ module OhdearHealthCheck
       @checks = []
     end
 
+    def check_names
+      checks.map(&:name)
+    end
+
     private
 
     def add_redis

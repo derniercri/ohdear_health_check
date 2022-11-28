@@ -41,4 +41,8 @@ RSpec.describe OhdearHealthCheck::Configuration, type: :model do
     it { expect(instance.checks.last).to be_a(OhdearHealthCheck::Check) }
     it { expect(instance.checks.map(&:name).sort).to eq(%i[database migrations zero_division]) }
   end
+
+  describe '#check_names' do
+    it { expect(subject.check_names).to eq(%i[database migrations]) }
+  end
 end
