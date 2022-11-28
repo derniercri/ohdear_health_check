@@ -4,7 +4,7 @@ require 'spec_helper'
 
 RSpec.describe OhdearHealthCheck::Checker, type: :model do
   let(:checks) { OhdearHealthCheck.configuration.checks }
-  let(:results) { checks.filter_map(&:result) }
+  let(:results) { checks.map(&:result).compact }
   let(:errors) { results.find_all { |check| check.status == :failed } }
 
   before do
