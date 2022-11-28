@@ -4,6 +4,7 @@ require 'bundler/setup'
 require 'support/simplecov'
 
 require 'ohdear_health_check'
+require './app/controllers/ohdear_health_check/health_checks_controller'
 
 require 'timecop'
 

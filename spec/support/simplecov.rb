@@ -9,7 +9,7 @@ SimpleCov.start do
     SimpleCov::Formatter::HTMLFormatter,
   ].compact)
 
-  minimum_coverage 100
+  minimum_coverage ENV.fetch('MIN_COVERAGE', 95)
 
   add_filter { |source_file| !source_file.lines.detect { |line| line.src.match?(/(def |attributes)/) } }
 
