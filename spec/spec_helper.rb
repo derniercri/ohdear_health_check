@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
+require 'bundler/setup'
+require 'support/simplecov'
+
 require 'ohdear_health_check'
+require './app/controllers/ohdear_health_check/health_checks_controller'
+
+require 'timecop'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -12,4 +18,6 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.after { OhdearHealthCheck.configuration.send(:initialize) }
 end

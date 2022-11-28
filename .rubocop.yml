@@ -2,6 +2,7 @@ inherit_from:
   - .rubocop_todo.yml
 
 AllCops:
+  TargetRubyVersion: 2.5
   NewCops: enable
 
 Layout/HashAlignment:
@@ -10,6 +11,11 @@ Layout/HashAlignment:
 
 Layout/LineLength:
   Max: 120
+
+Metrics/BlockLength:
+  Exclude:
+    - ohdear_health_check.gemspec
+    - spec/**/*_spec.rb
 
 Metrics/MethodLength:
   Max: 20
