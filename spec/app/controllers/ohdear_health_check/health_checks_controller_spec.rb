@@ -7,7 +7,7 @@ RSpec.describe OhdearHealthCheck::HealthChecksController, type: :model do
     subject { controller.check }
 
     before do
-      Timecop.freeze(Time.parse('2022-11-25 16:00'))
+      Timecop.freeze(Time.parse('2022-11-25 16:00 UTC'))
       OhdearHealthCheck.configuration.send(:clear!)
       OhdearHealthCheck.configure do |config|
         config.add_check :zero_division, -> { 100 / 0 }
@@ -41,7 +41,7 @@ RSpec.describe OhdearHealthCheck::HealthChecksController, type: :model do
                     status:              :ok,
                   },
                 ],
-                finishedAt:   1_669_388_400,
+                finishedAt:   1_669_392_000,
               },
             },
           )
@@ -69,7 +69,7 @@ RSpec.describe OhdearHealthCheck::HealthChecksController, type: :model do
                     status:              :failed,
                   },
                 ],
-                finishedAt:   1_669_388_400,
+                finishedAt:   1_669_392_000,
               },
             },
           )

@@ -25,9 +25,9 @@ RSpec.describe OhdearHealthCheck::Response, type: :model do
     end
 
     it 'returns a formatted hash to send to OhDear' do
-      expect(Timecop.freeze(Time.parse('2022-11-25 16:00')) { subject.call }).to eq(
+      expect(Timecop.freeze(Time.parse('2022-11-25 16:00 UTC')) { subject.call }).to eq(
         {
-          finishedAt:   1_669_388_400,
+          finishedAt:   1_669_392_000,
           checkResults: [
             {
               name:                :zero_division,
