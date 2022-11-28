@@ -20,7 +20,15 @@ RSpec.describe OhdearHealthCheck::HealthChecksController, type: :model do
     end
 
     context 'when check with success' do
-      before { allow_any_instance_of(OhdearHealthCheck::Check).to receive(:execute!) }
+      before do
+        allow_any_instance_of(OhdearHealthCheck::Check).to receive(:execute!)
+        allow_any_instance_of(OhdearHealthCheck::Response).to receive(:success_meta).and_return(
+          {
+            health:       :ok,
+            responseTime: '0.300s',
+          },
+        )
+      end
 
       it 'returns verbose response' do
         expect(controller)
@@ -33,7 +41,7 @@ RSpec.describe OhdearHealthCheck::HealthChecksController, type: :model do
                     label:               :Zero_division,
                     meta:                {
                       health:       :ok,
-                      responseTime: '0.0s',
+                      responseTime: '0.300s',
                     },
                     name:                :zero_division,
                     notificationMessage: nil,
