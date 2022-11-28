@@ -23,8 +23,8 @@ Gem::Specification.new do |spec|
 
   spec.metadata['rubygems_mfa_required'] = 'true'
 
-  spec.add_dependency 'actionpack', '~> 6.0'
-  spec.add_dependency 'railties', '~> 6.0'
+  spec.add_dependency 'actionpack'
+  spec.add_dependency 'railties'
 
   spec.add_development_dependency 'bundler', '~> 2.3'
   spec.add_development_dependency 'minitest', '~> 5.15.0'

@@ -2,8 +2,8 @@ PATH
   remote: .
   specs:
     ohdear_health_check (0.1.0)
-      actionpack (~> 6.0)
-      railties (~> 6.0)
+      actionpack
+      railties
 
 GEM
   remote: https://rubygems.org/
