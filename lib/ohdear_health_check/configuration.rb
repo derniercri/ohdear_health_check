@@ -46,7 +46,15 @@ module OhdearHealthCheck
 
     def add_default_checks
       add_check :database,   -> { ::ActiveRecord::Base.connection.execute('select 1') }, 'Database is up'
-      add_check :migrations, -> { ::ActiveRecord::Migration.check_pending! }, 'Migrations are up to date'
+      add_check :migrations, lambda {
+        if ActiveRecord::Migration.respond_to?(:check_pending!)
+          ::ActiveRecord::Migration.check_pending!
+        elsif ActiveRecord::Migration.respond_to?(:check_all_pending!)
+          ::ActiveRecord::Migration.check_all_pending!
+        else
+          raise OhdearHealthCheck::Check::Error
+        end
+      }, 'Migrations are up to date'
       add_redis
       add_sidekiq
     end
